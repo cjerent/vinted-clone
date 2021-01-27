@@ -28,7 +28,7 @@ const Home = () => {
       ) : (
         <>
           <div className="cover-section">
-            <img className="cover" src={coverImage} alt="vinted" />
+            <img className="cover-img" src={coverImage} alt="vinted" />
             <img className="cover-effect" src={tear} alt="effect" />
             <div className="promo-container">
               <div className="promo-box">
@@ -38,7 +38,8 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="offers-container">
+
+          <div className="cards-container">
             {data.map((offer) => (
               <OfferCard offer={offer} key={offer._id} />
             ))}

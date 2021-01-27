@@ -1,6 +1,9 @@
-html {
+body {
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
+
+/*HEADER*/
 
 header {
   display: flex;
@@ -8,10 +11,7 @@ header {
   padding: 10px 0;
   border-bottom: 1px solid #ebedee;
 }
-h1 {
-  font-size: 34px;
-  line-height: 42.5px;
-}
+
 .header-container {
   height: 100%;
   width: 1280px;
@@ -64,6 +64,8 @@ h1 {
   margin-left: 20px;
 }
 
+/*NAV*/
+
 .nav-container {
   display: flex;
   justify-content: center;
@@ -95,39 +97,48 @@ h1 {
 /*COVER IMAGE*/
 
 .cover-section {
+  height: 613px;
   display: flex;
   justify-content: center;
   position: relative;
   margin-bottom: 50px;
 }
 
-.cover {
-  width: 1440px;
-  height: 400px;
+.cover-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 .cover-effect {
   position: absolute;
-  width: 800px;
+  width: 936px;
+  height: 64px;
   bottom: 0;
-  left: 700px;
+  right: 0;
 }
 
 /*PROMO BOX COVER*/
 
 .promo-container {
   position: absolute;
-  height: 258px;
-  width: 400px;
-  top: 70px;
-  left: 100px;
-  background-color: #fff;
-  border-radius: 5px;
+  height: 100%;
+  width: 1280px;
+
+  display: flex;
+  align-items: center;
 }
 
 .promo-box {
+  height: 194px;
+  width: 336px;
   padding: 32px;
+  background-color: white;
+  border-radius: 5px;
+}
+h1 {
+  font-size: 34px;
+  line-height: 42.5px;
 }
 
 .promo-box button {
@@ -154,32 +165,32 @@ h1 {
   text-decoration: underline;
 }
 
-/*DISPLAY OFFERS*/
-.offers-container {
+/*HOME OFFERS CARDS*/
+
+.cards-container {
   width: 1280px;
-  padding-right: 100px;
-  padding-left: 100px;
   display: flex;
   flex-wrap: wrap;
+  margin: 20px auto auto;
 }
-.offer-username {
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% / 5);
+  cursor: pointer;
+}
+.card-username {
   padding-bottom: 5px;
   display: flex;
   align-items: center;
 }
 
-.offer-username > span {
+.card-username > span {
   padding-left: 10px;
   font-size: 12px;
   line-height: 16px;
   color: #999;
-}
-.offerCard {
-  display: flex;
-  flex-direction: column;
-  padding-right: 16px;
-  padding-bottom: 16px;
-  cursor: pointer;
 }
 
 .avatar {
@@ -189,19 +200,119 @@ h1 {
   object-fit: cover;
   cursor: pointer;
 }
-.product-image {
+.card-image {
   height: 428px;
   width: 235px;
   object-fit: cover;
   cursor: pointer;
 }
 
-.offer-info {
+.card-info {
   padding: 10px 0;
 }
-.offer-info > div:not(:first-child) {
+.card-info > div:not(:first-child) {
   margin-top: 5px;
   color: #999;
   font-size: 11px;
   line-height: 10px;
+}
+
+/*SINGLE OFFER PAGE*/
+
+.offer-section {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background: #ebedee;
+}
+
+.offer-container {
+  width: 1280px;
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+  margin: 60px 0;
+}
+
+.offer-image {
+  height: 605px;
+  width: 380px;
+  object-fit: cover;
+}
+
+.offer-info {
+  height: 525px;
+  width: 320px;
+  padding: 40px;
+  background-color: #fff;
+}
+
+.offer-info > div:nth-child(1) {
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 30px;
+}
+
+.offer-description {
+  display: flex;
+  padding: 4px 0;
+}
+
+.offer-description span {
+  font-size: 13px;
+  line-height: 12px;
+  flex: 1;
+}
+.offer-description span:nth-child(1) {
+  color: #999999;
+}
+
+.offer-description span:nth-child(2) {
+  color: #666666;
+  font-weight: 600;
+}
+
+.offer-info-bottom {
+  margin-top: 50px;
+  padding-top: 50px;
+  border-top: 1px solid #999999;
+}
+
+.offer-info-bottom div:nth-child(1) {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.offer-info-bottom div:nth-child(2) {
+  color: #666666;
+  margin-bottom: 20px;
+}
+
+.offer-avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.offer-info-bottom div:nth-child(3) {
+  display: flex;
+  align-items: center;
+}
+
+.offer-info-bottom div:nth-child(3) span {
+  margin-right: 10px;
+}
+
+.offer-info button {
+  margin-top: 50px;
+  width: 100%;
+  height: 36px;
+  background-color: #09b1ba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }

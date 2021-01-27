@@ -10,24 +10,18 @@ const OfferCard = (props) => {
   const offerImage = offer.product_image.secure_url;
   const avatar = offer.owner.account.avatar.secure_url;
   return (
-    <div>
-      <div className="offerCard">
-        <div className="offer-username">
-          <img className="avatar" src={avatar} alt={username} />
-          <span>{username}</span>
-        </div>
-        <Link to={`/offer/${offer._id}`}>
-          <img
-            className="product-image"
-            src={offerImage}
-            alt={offer.product_name}
-          />
-        </Link>
-        <div className="offer-info">
-          <div> {price} €</div>
-          <div>{size}</div>
-          <div>{brand}</div>
-        </div>
+    <div className="cards">
+      <div className="card-username">
+        <img className="avatar" src={avatar} alt={username} />
+        <span>{username}</span>
+      </div>
+      <Link to={`/offer/${offer._id}`}>
+        <img className="card-image" src={offerImage} alt={offer.product_name} />
+      </Link>
+      <div className="card-info">
+        <div> {price} €</div>
+        <div>{size}</div>
+        <div>{brand}</div>
       </div>
     </div>
   );
