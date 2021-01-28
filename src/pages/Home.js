@@ -32,7 +32,7 @@ const Home = () => {
             <img className="cover-effect" src={tear} alt="effect" />
             <div className="promo-container">
               <div className="promo-box">
-                <h1>Prêt à faire du tri dans vos placards ?</h1>
+                <p>Prêt à faire du tri dans vos placards ?</p>
                 <button>Commencer à vendre</button>
                 <div>Découvrez comment ça marche</div>
               </div>
