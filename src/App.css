@@ -319,3 +319,77 @@ header {
   cursor: pointer;
   font-size: 16px;
 }
+
+/*SIGNUP*/
+
+.signin-container {
+  height: 100%;
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.signin-container div:nth-child(1) {
+  margin: 20px;
+  font-size: 24px;
+}
+
+.signin-form-container {
+  width: 275px;
+}
+.signin-form-container input {
+  width: 275px;
+  height: 35px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid #fcced3;
+}
+
+.signin-form-container input::placeholder {
+  color: #bbb;
+}
+.checkbox {
+  height: 35px;
+  margin-top: 20px;
+  display: flex;
+  color: #666666;
+}
+
+.checkbox input {
+  height: 26px;
+  width: 26px;
+  margin: 0 15px 0 10px;
+  cursor: pointer;
+}
+
+.signin-form-container p:not(:last-child) {
+  font-size: 12px;
+  line-height: 16px;
+  margin-left: 10px;
+  color: #999999;
+  text-align: left;
+}
+
+.signup-error-message {
+  color: firebrick;
+}
+
+.signin-form-container button {
+  width: 100%;
+  height: 45px;
+  font-size: 16px;
+  background: #2cb1ba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.signin-form-container p {
+  color: #2cb1ba;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+}

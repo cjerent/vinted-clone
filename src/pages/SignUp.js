@@ -25,17 +25,14 @@ const SignUp = (props) => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    console.log(email, password);
     try {
-      const response = await axios.post(
-        "https://vinted-charlene.herokuapp.com/user/signup",
-        {
-          email: email,
-          password: password,
-          username: username,
-        }
-      );
+      event.preventDefault();
+      console.log(email, password);
+      const response = await axios.post("http://localhost:3000/user/signup", {
+        email: email,
+        password: password,
+        username: username,
+      });
       if (response.data.token) {
         handleLogin(response.data.token);
         history.push("/");
@@ -44,43 +41,50 @@ const SignUp = (props) => {
       }
     } catch (error) {
       if (error.response.status === 409) {
-        setErrorMessage("Cet email existe déjà chez nous !");
+        setErrorMessage("Hum 🤔 ton adresse e-mail existe déjà chez nous...");
       }
       console.log(error.message);
     }
   };
 
   return (
-    <div>
+    <div className="signin-container">
       <div>S'inscrire</div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nom d'utilisateur"
-          value={username}
-          onChange={handleUsernameChange}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <input
-          type="password"
-          placeholder="Mot de passe"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-        <input type="checkbox" /> <span>S'inscrire à notre newsletter</span>
-        <p>
-          En m'inscrivant je confirme avoir lu et accepté les Termes &
-          Conditions et Politique de Confidentialité de Vinted. Je confirme
-          avoir au moins 18 ans.
-        </p>
-        <input type="submit" value="S'inscrire" />
-        <p>Tu as déjà un compte ? Connecte-toi !</p>
-      </form>
+      <div className="signin-form-container">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Nom d'utilisateur"
+            value={username}
+            onChange={handleUsernameChange}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={handleEmailChange}
+          />
+          <div className="signup-error-message">{errorMessage}</div>
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+          <div className="checkbox">
+            <input type="checkbox" />
+            <span>S'inscrire à notre newsletter</span>
+          </div>
+
+          <p>
+            En m'inscrivant je confirme avoir lu et accepté les Termes &
+            Conditions et Politique de Confidentialité de Vinted. Je confirme
+            avoir au moins 18 ans.
+          </p>
+          <button type="submit">S'inscrire</button>
+          <p>Tu as déjà un compte ? Connecte-toi !</p>
+        </form>
+      </div>
     </div>
   );
 };

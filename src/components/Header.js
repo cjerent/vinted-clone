@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../assets/vinted_logo.png";
-import HeaderNav from "./HeaderNav";
 import { useHistory } from "react-router-dom";
 
 const Header = () => {
@@ -25,12 +24,11 @@ const Header = () => {
           <div className="header-button">
             <div onClick={() => history.push("/signup")}>S'inscrire</div>
 
-            <div>Se connecter</div>
+            <div onClick={() => history.push("/signin")}>Se connecter</div>
             <div>Vends tes articles</div>
           </div>
         </div>
       </header>
-      <HeaderNav />
     </>
   );
 };

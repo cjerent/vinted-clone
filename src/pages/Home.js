@@ -4,6 +4,7 @@ import coverImage from "../assets/cover.jpeg";
 import tear from "../assets/tear-effect.svg";
 import axios from "axios";
 import OfferCard from "../components/OfferCard";
+import HeaderNav from "../components/HeaderNav";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -27,6 +28,7 @@ const Home = () => {
         <span>En cours de chargement...</span>
       ) : (
         <>
+          <HeaderNav />
           <div className="cover-section">
             <img className="cover-img" src={coverImage} alt="vinted" />
             <img className="cover-effect" src={tear} alt="effect" />

@@ -8,6 +8,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import SignUp from "./pages/SignUp";
 import Cookies from "js-cookie";
+import Login from "./pages/Login";
 
 library.add(faSearch);
 
@@ -30,6 +31,9 @@ function App() {
         <Switch>
           <Route exact path="/signup">
             <SignUp handleLogin={handleLogin} />
+          </Route>
+          <Route exact path="/signin">
+            <Login />
           </Route>
           <Route exact path="/offer/:id">
             <Offer />
