@@ -3,6 +3,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/*LOADER*/
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
 /*HEADER*/
 
 header {
@@ -15,7 +24,7 @@ header {
 .header-container {
   height: 100%;
   width: 1280px;
-  margin: 0 100px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
@@ -31,13 +40,14 @@ header {
   border: none;
   font-size: 16px;
   outline: none;
+  padding-left: 10px;
+  align-items: center;
 }
 .search-bar > input::placeholder {
   color: #bbb;
 }
 
-.search-icon {
-  padding: 10px 20px 10px 10px;
+.search-icon path {
   color: #bbb;
 }
 
@@ -58,10 +68,16 @@ header {
   cursor: pointer;
 }
 
-.header-button div:nth-child(3) {
+.header-button .blue-button {
   background: #09b1ba;
   color: white;
   margin-left: 20px;
+}
+
+.header-button .logout-button {
+  background: lightcoral;
+  border: lightcoral 1px solid;
+  color: white;
 }
 
 /*NAV*/
@@ -174,7 +190,7 @@ header {
   width: 1280px;
   display: flex;
   flex-wrap: wrap;
-  margin: 20px auto auto;
+  margin: 20px auto;
 }
 
 .cards {

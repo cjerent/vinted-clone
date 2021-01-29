@@ -1,8 +1,11 @@
 import React from "react";
 import logo from "../assets/vinted_logo.png";
 import { useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = () => {
+const Header = (props) => {
+  const { handleLogout, authToken } = props;
+
   let history = useHistory();
 
   return (
@@ -14,18 +17,33 @@ const Header = () => {
           </div>
 
           <div className="search-bar">
+            <FontAwesomeIcon className="search-icon" icon="search" />
             <input
               className="search-bar"
               type="text"
               placeholder="Recherche des articles"
             ></input>
           </div>
-
           <div className="header-button">
-            <div onClick={() => history.push("/signup")}>S'inscrire</div>
+            {authToken ? (
+              <>
+                <div
+                  onClick={() => {
+                    handleLogout();
+                  }}
+                  className="logout-button"
+                >
+                  Se déconnecter
+                </div>
+              </>
+            ) : (
+              <>
+                <div onClick={() => history.push("/signup")}>S'inscrire</div>
 
-            <div onClick={() => history.push("/signin")}>Se connecter</div>
-            <div>Vends tes articles</div>
+                <div onClick={() => history.push("/login")}>Se connecter</div>
+              </>
+            )}
+            <div className="blue-button">Vends tes articles</div>
           </div>
         </div>
       </header>

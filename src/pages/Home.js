@@ -5,6 +5,7 @@ import tear from "../assets/tear-effect.svg";
 import axios from "axios";
 import OfferCard from "../components/OfferCard";
 import HeaderNav from "../components/HeaderNav";
+import IsLoading from "../components/IsLoading";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -25,7 +26,7 @@ const Home = () => {
   return (
     <>
       {isLoading ? (
-        <span>En cours de chargement...</span>
+        <IsLoading />
       ) : (
         <>
           <HeaderNav />

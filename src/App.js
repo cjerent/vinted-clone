@@ -32,8 +32,8 @@ function App() {
           <Route exact path="/signup">
             <SignUp handleLogin={handleLogin} />
           </Route>
-          <Route exact path="/signin">
-            <Login />
+          <Route exact path="/login">
+            <Login handleLogin={handleLogin} />
           </Route>
           <Route exact path="/offer/:id">
             <Offer />
