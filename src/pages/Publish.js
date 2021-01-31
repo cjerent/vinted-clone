@@ -53,6 +53,10 @@ const Publish = (props) => {
     setPreview(URL.createObjectURL(event.target.files[0]));
   };
 
+  const removeImageUploaded = (event) => {
+    setPreview("");
+  };
+
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
@@ -80,7 +84,7 @@ const Publish = (props) => {
       console.log(response.data);
 
       if (response.data._id) {
-        history.push(`/offer/${response.data._id}`);
+        history.push("/");
       } else {
         alert("Une erreur est survenue");
       }
@@ -91,80 +95,131 @@ const Publish = (props) => {
 
   return authToken ? (
     <>
-      <div>Vends ton article</div>
-      <form onSubmit={handleSubmit}>
-        {preview && <img src={preview} alt="preview" />}
-        <div>
-          <input type="file" onChange={handleImageUpload}></input>
+      <div className="publish-grey">
+        <div className="publish-container">
+          <div className="main-title">Vends ton article</div>
+          <form onSubmit={handleSubmit}>
+            <div className="section-container">
+              <div className="file-upload-section">
+                {preview ? (
+                  <div className="image-preview">
+                    {preview && <img src={preview} alt="preview" />}
+                    <div
+                      className="remove-image-cross"
+                      onClick={removeImageUploaded}
+                    >
+                      X
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    <label for="file-upload" className="upload-button">
+                      <span>+ Ajoute une photo</span>
+                    </label>
+                    <input
+                      id="file-upload"
+                      type="file"
+                      onChange={handleImageUpload}
+                    ></input>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="section-container">
+              <div className="text-input">
+                <div>Titre</div>
+                <input
+                  type="text"
+                  placeholder="ex: Chemise verte"
+                  value={productTitle}
+                  onChange={handleTitleChange}
+                ></input>
+              </div>
+              <div className="text-input">
+                <div>Décris ton article</div>
+                <input
+                  type="textarea"
+                  placeholder="ex: Portée quelquefois, taille correctement"
+                  value={productDescription}
+                  onChange={handleDescriptionChange}
+                ></input>
+              </div>
+            </div>
+            <div className="section-container">
+              <div className="text-input">
+                <div>Marque</div>
+                <input
+                  type="text"
+                  placeholder="ex: Nike"
+                  value={productBrand}
+                  onChange={handleBrandChange}
+                ></input>
+              </div>
+
+              <div className="text-input">
+                <div>Taille</div>
+                <input
+                  type="text"
+                  placeholder="ex: S / 36 / 12 ans"
+                  value={productSize}
+                  onChange={handleSizeChange}
+                ></input>
+              </div>
+
+              <div className="text-input">
+                <div>Couleur</div>
+                <input
+                  type="text"
+                  placeholder="ex: Vert turquoise"
+                  value={productColour}
+                  onChange={handleColourChange}
+                ></input>
+              </div>
+
+              <div className="text-input">
+                <div>Etat</div>
+                <input
+                  type="text"
+                  placeholder="ex: Neuf jamais porté"
+                  value={productCondition}
+                  onChange={handleConditionChange}
+                ></input>
+              </div>
+
+              <div className="text-input">
+                <div>Lieu</div>
+                <input
+                  type="text"
+                  placeholder="ex: Pointe-Noire"
+                  value={productLocation}
+                  onChange={handleLocationChange}
+                ></input>
+              </div>
+            </div>
+            <div className="section-container">
+              <div className="last-text-input">
+                <div>Prix</div>
+                <div>
+                  <input
+                    className="price-input"
+                    type="text"
+                    placeholder="ex: 0,00 €"
+                    value={productPrice}
+                    onChange={handlePriceChange}
+                  ></input>
+                  <div className="publish-checkbox">
+                    <input type="checkbox"></input>
+                    <span>Je suis intéréssée par les échanges</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="publish-button">
+              <button type="submit">Ajouter</button>
+            </div>
+          </form>
         </div>
-        <div>
-          <div>Titre</div>
-          <input
-            type="text"
-            placeholder="ex:Chemise verte"
-            value={productTitle}
-            onChange={handleTitleChange}
-          ></input>
-          <div>Décris ton article</div>
-          <input
-            type="text"
-            placeholder="ex:Portée quelquefois, taille correctement"
-            value={productDescription}
-            onChange={handleDescriptionChange}
-          ></input>
-        </div>
-        <div>
-          <div>Marque</div>
-          <input
-            type="text"
-            placeholder="ex: Nike"
-            value={productBrand}
-            onChange={handleBrandChange}
-          ></input>
-          <div>Taille</div>
-          <input
-            type="text"
-            placeholder="ex: S / 36 / 12 ans"
-            value={productSize}
-            onChange={handleSizeChange}
-          ></input>
-          <div>Couleur</div>
-          <input
-            type="text"
-            placeholder="ex: Vert turquoise"
-            value={productColour}
-            onChange={handleColourChange}
-          ></input>
-          <div>Etat</div>
-          <input
-            type="text"
-            placeholder="ex: Neuf jamais porté"
-            value={productCondition}
-            onChange={handleConditionChange}
-          ></input>
-          <div>Lieu</div>
-          <input
-            type="text"
-            placeholder="ex: Pointe-Noire"
-            value={productLocation}
-            onChange={handleLocationChange}
-          ></input>
-        </div>
-        <div>
-          <div>Prix</div>
-          <input
-            type="text"
-            placeholder="ex: 0,00 €"
-            value={productPrice}
-            onChange={handlePriceChange}
-          ></input>
-          <div>
-            <input type="checkbox"></input>
-            <span>Je suis intéréssée par les échanges</span>
-          </div>
-        </div>
-        <button type="submit">Ajouter</button>
-      </form>
+      </div>
     </>
   ) : (
     <Redirect to="/login" />
