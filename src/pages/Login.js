@@ -23,13 +23,10 @@ const Login = (props) => {
       event.preventDefault();
       setIsLoading(true);
       console.log(email, password);
-      const response = await axios.post(
-        "https://vinted-charlene.herokuapp.com/user/login",
-        {
-          email: email,
-          password: password,
-        }
-      );
+      const response = await axios.post("http://localhost:3000/user/login", {
+        email: email,
+        password: password,
+      });
       if (response.data.token) {
         handleLogin(response.data.token);
         history.push("/");
@@ -46,7 +43,7 @@ const Login = (props) => {
 
   return (
     <div className="signin-container">
-      <div>Se connecter</div>
+      <div className="main-title">Se connecter</div>
       <div className="signin-form-container">
         <form onSubmit={handleSubmit}>
           <input

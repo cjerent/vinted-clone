@@ -60,7 +60,7 @@ const SignUp = (props) => {
         <IsLoading />
       ) : (
         <div className="signin-container">
-          <div>S'inscrire</div>
+          <div className="main-title">S'inscrire</div>
           <div className="signin-form-container">
             <form onSubmit={handleSubmit}>
               <input
