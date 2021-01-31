@@ -5,6 +5,8 @@ const OfferCard = (props) => {
   const { data } = props;
 
   const username = data.owner.account.username;
+  const brand = data.product_details[0]["MARQUE"];
+  const size = data.product_details[1]["TAILLE"];
   const price = data.product_price;
   const offerImage = data.product_image.secure_url;
   const avatar = data.owner.account.avatar;
@@ -29,26 +31,8 @@ const OfferCard = (props) => {
       </Link>
       <div className="card-info">
         <div> {price} €</div>
-        <div>
-          {data.product_details.map((elem, index) => {
-            const keys = Object.keys(elem);
-            return (
-              <div key={index}>
-                <div>{elem[keys[1]].toUpperCase()}</div>
-              </div>
-            );
-          })}
-        </div>
-        <div>
-          {data.product_details.map((elem, index) => {
-            const keys = Object.keys(elem);
-            return (
-              <div key={index} className="offer-description">
-                <div>{elem[keys[0]].toUpperCase()}</div>
-              </div>
-            );
-          })}
-        </div>
+        <div>{brand}</div>
+        <div>{size}</div>
       </div>
     </div>
   );

@@ -79,8 +79,8 @@ const Publish = (props) => {
       );
       console.log(response.data);
 
-      if (response.data.offer_id) {
-        history.push(`/offer/${response.data.offer_id}`);
+      if (response.data._id) {
+        history.push(`/offer/${response.data._id}`);
       } else {
         alert("Une erreur est survenue");
       }
