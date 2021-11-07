@@ -35,11 +35,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://vinted-charlene.herokuapp.com/offers?priceMin=${
-          fetchRangeValues[0]
-        }&priceMax=${fetchRangeValues[1]}&sort=${
-          sortPrice ? "price-desc" : "price-asc"
-        }&title=${search}`
+        `https://vinted-charlene.herokuapp.com/offers`
       );
       setData(response.data);
       setIsLoading(false);
