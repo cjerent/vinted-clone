@@ -18,8 +18,6 @@ function App() {
   const [authToken, setAuthToken] = useState(Cookies.get("auth_token") || null);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [sortPrice, setSortPrice] = useState(false);
-  const [fetchRangeValues, setFetchRangeValues] = useState([0, 10000]);
   const [search, setSearch] = useState("");
 
   const handleLogin = (token) => {
@@ -41,7 +39,7 @@ function App() {
       setIsLoading(false);
     };
     fetchData();
-  }, [fetchRangeValues, sortPrice, search]);
+  });
 
   return (
     <>
@@ -49,10 +47,6 @@ function App() {
         <Header
           authToken={authToken}
           handleLogout={handleLogout}
-          setFetchRangeValues={setFetchRangeValues}
-          fetchRangeValues={fetchRangeValues}
-          sortPrice={sortPrice}
-          setSortPrice={setSortPrice}
           setSearch={setSearch}
         />
         <Switch>

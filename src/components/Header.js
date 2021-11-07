@@ -2,17 +2,9 @@ import React from "react";
 import logo from "../assets/vinted_logo.png";
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import PriceRange from "./PriceRange";
 
 const Header = (props) => {
-  const {
-    handleLogout,
-    authToken,
-    setFetchRangeValues,
-    sortPrice,
-    setSortPrice,
-    setSearch,
-  } = props;
+  const { handleLogout, authToken, setSearch } = props;
 
   let history = useHistory();
 
@@ -40,24 +32,7 @@ const Header = (props) => {
                 display: "flex",
                 alignItems: "center",
               }}
-            >
-              <span style={{ marginRight: 10 }}>Trier par prix : </span>
-              <span>
-                <input type="checkbox" checked={sortPrice} name="price" />
-                <div
-                  className="wrapper"
-                  onClick={() => {
-                    setSortPrice(!sortPrice);
-                  }}
-                >
-                  <div>
-                    <span>{sortPrice ? "⇣" : "⇡"}</span>
-                  </div>
-                </div>
-              </span>
-              <span style={{ marginRight: 10 }}>Prix entre : </span>
-              <PriceRange setFetchRangeValues={setFetchRangeValues} />
-            </div>
+            ></div>
           </div>
 
           <div className="header-button">
